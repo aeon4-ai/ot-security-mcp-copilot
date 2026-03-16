@@ -1,0 +1,35 @@
+services:
+  backend:
+    image: jobmathenge/ot-sec-platform-backend:latest
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:////app/ot_assets.db
+      - DEBUG=False
+    volumes:
+      - ./backend/ot_assets.db:/app/ot_assets.db
+      - ./backend/ot_platform.db:/app/ot_platform.db
+    networks:
+      - aeon-net
+
+  frontend:
+    image: jobmathenge/ot-sec-platform-frontend:latest
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - BACKEND_URL=http://backend:8001
+      - NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/api
+    depends_on:
+      - backend
+    networks:
+      - aeon-net
+
+networks:
+  aeon-net:
+    driver: bridge
