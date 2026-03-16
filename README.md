@@ -4,6 +4,61 @@ AeOn4.0 is a next-generation **AI-native OT Security & Operations Platform**. En
 
 ---
 
+## 🚀 Getting Started
+
+Follow these steps to deploy the AeOn4.0 platform in your environment.
+
+### 📋 Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+- **Git**: For cloning the repository.
+- **Docker & Docker Compose**: For containerized deployment (Recommended).
+
+---
+
+### 🛠️ Step-by-Step Installation
+
+#### 1. Clone the Repository
+Download the latest version of the AeOn4.0 source code from GitHub:
+```bash
+git clone https://github.com/jobmathenge/ot-security-mcp-copilot.git
+```
+> [!NOTE]
+> This command creates a local copy of the project including all submodules and assets.
+
+#### 2. Navigate to the Project Directory
+Enter the newly created folder to begin configuration:
+```bash
+cd ot-security-mcp-copilot
+```
+
+#### 3. Launch the Platform
+Deploy the full stack using Docker Compose. We recommend running a "down" command first to ensure a clean state:
+
+**Clean existing state (Optional but recommended):**
+```bash
+docker-compose down
+```
+*This stops and removes any existing containers, networks, and images associated with the project.*
+
+**Start the Platform:**
+```bash
+docker-compose up -d
+```
+*The `-d` flag runs the containers in **detached mode**, allowing the platform to operate in the background.*
+
+---
+
+### ⚡ Quick Start (Single Command)
+
+For experienced users, you can clone and launch the entire platform with a single command:
+
+```bash
+git clone https://github.com/jobmathenge/ot-security-mcp-copilot.git && cd ot-security-mcp-copilot && docker-compose down && docker-compose up -d
+```
+
+---
+
 ## 🧭 Dynamic Intelligence Tours
 
 AeOn4.0 features interactive, mission-focused tours to get you acquainted with the Industrial Intelligence Engine. Use the table below to identify the launch controls in each operational mode.
@@ -156,20 +211,6 @@ High-precision filtering across secure industrial zones.
 *   **Dual-Mode Industrial UI**: Engineered for operational clarity in diverse lighting.
 *   **Deep Asset Discovery**: Automated metadata and MAC-based behavioral fingerprinting.
 *   **Model Context Protocol (MCP)**: Secure tool execution via `FastMCP`.
-
----
-
-## 🚀 Deployment Instructions
-
-### 🐳 1. Docker (Recommended)
-```bash
-git clone https://github.com/jobmathenge/OT-Security-MCP.git
-cd ot-sec-platform && docker-compose up -d
-```
-
-### 🛠️ 2. Manual Development
-**Backend**: `cd backend && pip install . && uvicorn app.main:app --port 8001`  
-**Frontend**: `cd frontend && npm install && npm run dev`
 
 ---
 
